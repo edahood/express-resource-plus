@@ -16,7 +16,7 @@ In your main application file (i.e. app.js or server.js) just add the following:
     var express = require('express'),
         Resource = require('express-resource-plus'), // <- Add this (Resource really isn't needed)
         app = express.createServer();
-    
+
     app.configure(function(){
       // it is important to note that /app directory layout must follow a specific pattern to work properly see [App Layout](#app-layout)
       app.set('app_dir', __dirname + '/app');
@@ -119,6 +119,10 @@ Actions are, by default, mapped as shown below. These routs provide `req.params.
     destroy DELETE  /articles/:articleId/comments/:commentId.:format?
     destroy DELETE  /articles/:articleId/comments.:format?  ( { where : { username : 'Steve' } })
     query   POST    /articles/:articleId/comments/query.:format?  ( { where : { username : 'Steve' } })
+
+
+## Resource Loader
+  You can now include  options.load (a middleware function) which will load the resource as a parameter in the request
 
 ## Content Negotiation
 
